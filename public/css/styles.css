@@ -69,7 +69,7 @@
     }
 }
 
-/*---------------------- Welcome Section ----------------------*/
+/*---------------------- Room Section ----------------------*/
 #room {
     .read_more {
         font-size: 17px;
@@ -128,23 +128,57 @@
 }
 
 /*---------------------- Our_Room Section ----------------------*/
+#detailRoom{
+    h1 {
+        color: #000080;
+    }
+
+    hr {
+        background: #000080;
+        width: 200px;
+        height: 5px !important;
+        margin: 15px auto;
+    }
+
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .property-info,
+    .more-info,
+    .amenities,
+    .check-in-out,
+    .rates,
+    .terms {
+        border-bottom: 1px solid #000;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    .amenities .icon {
+        display: inline-block;
+        text-align: center;
+        width: 80px;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        margin-bottom: 15px;
+    }
+}
 .our_room {
     background-color: #f4f5f7;
     padding: 30px 0 30px 0;
 }
 
-.our_room .titlepage {
-    text-align: center;
-}
-
-.our_room .titlepage p {
-    color: #121212;
-    font-size: 17px;
-    margin-top: 20px;
-}
-
 .our_room .room {
-    text-align: center;
     background-color: #fff;
     margin-bottom: 30px;
     transition: ease-in all 0.5s;

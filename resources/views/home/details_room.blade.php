@@ -5,29 +5,6 @@
     <base href="/public">
     @include('home.css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <style>
-        label {
-            display: inline-block;
-            width: 200px;
-        }
-
-        input {
-            width: 100%;
-        }
-
-        .property-info, .more-info, .amenities, .check-in-out, .rates, .terms {
-            border-bottom: 1px solid #000;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-        }
-
-        .amenities .icon {
-            display: inline-block;
-            text-align: center;
-            width: 80px;
-        }
-    </style>
 </head>
 <!-- body -->
 
@@ -45,15 +22,13 @@
     <!-- end header inner -->
     <!-- end header -->
 
-
-    <div class="our_room">
+    <div class="our_room" id="detailRoom">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>Our Room</h2>
-                        <p>Lorem Ipsum available, but the majority have suffered </p>
-                    </div>
+                <h1 class="text-center mt-3 display-3 fw-bold">Book Room's</h1>
+                <hr>
+                <div class="wrapper text-center mb-5">
+                    <h5>It turns out they prefer to book this room, you know...</h5>
                 </div>
             </div>
 
@@ -62,97 +37,96 @@
                 <div class="col-md-8">
                     <div id="serv_hover" class="room">
                         <div style="padding:20px" class="room_img">
-
+                            <h2 class="fw-bold">{{$room->room_title}}</h2>
                             <img style="height: 400px; width: 800px;" src="/room/{{$room->image}}" alt="kamar" />
-
                         </div>
                         <div class="bed_room">
-                            <h2>{{$room->room_title}}</h2>
+                            <!-- <h2>{{$room->room_title}}</h2> -->
                             <p style="padding:12px">{{$room->description}}</p>
-                            <h4 style="padding:12px">Free Wifi : {{$room->wifi}}</h4>
                             <h4 style="padding:12px">Type Room : {{$room->room_type}}</h4>
-                            <h3 style="padding:12px">Price : {{$room->price}}</h3>
                         </div>
 
                         <div class="container mt-5">
-                        <div class="property-info row">
-                            <div class="col-md-4">
-                                <strong>Properties:</strong>
-                            </div>
-                            <div class="col-md-8">
-                                <div>Accommodates: 4</div>
-                                <div>Beds: 4 Single(s)</div>
-                                <div>Size: 12 sq m</div>
-                            </div>
-                        </div>
-
-                        <div class="more-info row">
-                            <div class="col-md-4">
-                                <strong>More Info:</strong>
-                            </div>
-                            <div class="col-md-8">
-                                <div>Breakfast Bathroom Outside Single Bed for 4 person/room Water Heater Internet Wifi Non Smoking Room</div>
-                            </div>
-                        </div>
-
-                        <div class="amenities row">
-                            <div class="col-md-4">
-                                <strong>Amenities:</strong>
-                            </div>
-                            <div class="col-md-8 d-flex flex-wrap">
-                                <div class="icon">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/wifi--v1.png" />
-                                    <div>WiFi</div>
+                            <div class="property-info row">
+                                <div class="col-md-4">
+                                    <strong>Properties:</strong>
                                 </div>
-                                <div class="icon">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/safe.png" />
-                                    <div>Safe</div>
-                                </div>
-                                <div class="icon">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/shower.png" />
-                                    <div>Shower</div>
-                                </div>
-                                <div class="icon">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/towel.png" />
-                                    <div>Towels</div>
-                                </div>
-                                <div class="icon">
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/workspace.png" />
-                                    <div>Sharing Work Space</div>
+                                <div class="col-md-8">
+                                    <div>Accommodates: 4</div>
+                                    <div>Beds: 4 Single(s)</div>
+                                    <div>Size: 12 sq m</div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="check-in-out row">
-                            <div class="col-md-4">
-                                <strong>Check In and Out:</strong>
+                            <div class="more-info row">
+                                <div class="col-md-4">
+                                    <strong>More Info:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <div>Breakfast Bathroom Outside Single Bed for 4 person/room Water Heater Internet Wifi Non Smoking Room</div>
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <div>Check-In: 02:00 PM</div>
-                                <div>Check-Out: 12:00 PM</div>
-                            </div>
-                        </div>
 
-                        <div class="rates row">
-                            <div class="col-md-4">
-                                <strong>Rates:</strong>
+                            <div class="amenities row">
+                                <div class="col-md-4">
+                                    <strong>Amenities:</strong>
+                                </div>
+                                <div class="col-md-8 d-flex flex-wrap">
+                                    @if($room->wifi === 'yes')
+                                    <div class="icon">
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/wifi--v1.png" />
+                                        <div>WiFi</div>
+                                    </div>
+                                    @endif
+                                    <div class="icon">
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/safe.png" />
+                                        <div>Safe</div>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/shower.png" />
+                                        <div>Shower</div>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/towel.png" />
+                                        <div>Towels</div>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="https://img.icons8.com/material-outlined/24/000000/briefcase.png" />
+                                        <div>Sharing Work Space</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <div>Daily: from Rp600000</div>
-                                <div>Weekly: from Rp3500000</div>
-                                <div>Monthly: from Rp15000000</div>
-                            </div>
-                        </div>
 
-                        <div class="terms row">
-                            <div class="col-md-4">
-                                <strong>Terms:</strong>
+                            <div class="check-in-out row">
+                                <div class="col-md-4">
+                                    <strong>Check In and Out:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <div>Check-In: 02:00 PM</div>
+                                    <div>Check-Out: 12:00 PM</div>
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <a href="#">Read Our Policies</a>
+
+                            <div class="rates row">
+                                <div class="col-md-4">
+                                    <strong>Rates:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <div>Daily: from Rp{{$room->price}}</div>
+                                    <div>Weekly: from Rp3500000</div>
+                                    <div>Monthly: from Rp15000000</div>
+                                </div>
+                            </div>
+
+                            <div class="terms row">
+                                <div class="col-md-4">
+                                    <strong>Terms:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#">Read Our Policies</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 
@@ -161,30 +135,20 @@
 
                     <div>
                         @if(session()->has('message'))
-
                         <div class="alert alert-success">
                             <button type="button" class="close" data-bs-dismiss="alert">X</button>
                             {{session()->get('message')}}
                         </div>
-
                         @endif
                     </div>
 
                     @if($errors)
-
                     @foreach($errors->all() as $errors)
-
-                    <li>
-                        {{$errors}}
-                    </li>
-
+                    <li>{{$errors}}</li>
                     @endforeach
-
                     @endif
 
                     <form action="{{url('add_booking', $room->id)}}" method="POST">
-
-
                         @csrf
                         <div>
                             <label>Name</label>
@@ -215,7 +179,6 @@
             </div>
         </div>
     </div>
-
 
     <!--  footer -->
     @include('home.footer')
